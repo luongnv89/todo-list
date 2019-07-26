@@ -9,6 +9,15 @@ const addTodo = (text) => ({
   text,
 });
 
+const removeTodo = (index) => ({
+  type: 'REMOVE_TODO',
+  index,
+});
+
+const removeAllTodos = () => ({
+  type: 'REMOVE_ALL_TODOS',
+});
+
 const toggleTodo = (index) => ({
   type: 'TOGGLE_TODO',
   index,
@@ -22,6 +31,8 @@ const setVisibilityFilter = (filter) => ({
 module.exports = {
   setVisibilityFilter,
   addTodo,
+  removeTodo,
   toggleTodo,
   VisibilityFilters,
+  removeAllTodos,
 };
