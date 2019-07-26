@@ -22,8 +22,6 @@ const Todo = ({ toggleTodo, removeTodo, completed, text, index }) => (
         />
       </button>
     </th>
-
-
   </tr>
 );
 
