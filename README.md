@@ -1,2 +1,6 @@
-# todo-list
-Todo List web application - Reactjs
+# Todo-List app
+
+```
+npm install
+npm start
+```
