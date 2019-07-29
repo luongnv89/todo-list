@@ -20,3 +20,19 @@ export default createReducer(
   },
   initialState
 );
+
+// export default createReducer((on, off) => {
+//   on(addTodo, (todos, text) => [...todos, { text: text, completed: false }]);
+//   on(removeTodo, (todos, id) => todos.filter((t, index) => id !== index));
+//   on(removeAllTodos,todos => []);
+//   on(toggleTodo, (todos, id) =>
+//       todos.map((todo, index) => {
+//         if (index === id) {
+//           return Object.assign({}, todo, {
+//             completed: !todo.completed
+//           });
+//         }
+//         return todo;
+//       }));
+// }, initialState);
+

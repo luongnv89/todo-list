@@ -7,7 +7,10 @@ import Root from "./containers/Root";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
-const loggerMiddleware = createLogger();
+const loggerMiddleware = createLogger({
+  duration: true,
+  collapsed: true,
+});
 const store = createStore(todoApp, applyMiddleware(loggerMiddleware));
 
 ReactDOM.render(<Root store={store} />, document.getElementById("root"));
