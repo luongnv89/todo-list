@@ -1,38 +1,12 @@
-const VisibilityFilters = {
+import { createAction } from 'redux-act';
+
+export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE',
 };
 
-const addTodo = (text) => ({
-  type: 'ADD_TODO',
-  text,
-});
-
-const removeTodo = (index) => ({
-  type: 'REMOVE_TODO',
-  index,
-});
-
-const removeAllTodos = () => ({
-  type: 'REMOVE_ALL_TODOS',
-});
-
-const toggleTodo = (index) => ({
-  type: 'TOGGLE_TODO',
-  index,
-});
-
-const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter,
-});
-
-module.exports = {
-  setVisibilityFilter,
-  addTodo,
-  removeTodo,
-  toggleTodo,
-  VisibilityFilters,
-  removeAllTodos,
-};
+export const addTodo = createAction('ADD_TODO');
+export const removeTodo = createAction('REMOVE_TODO');
+export const removeAllTodos = createAction('REMOVE_ALL_TODOS');
+export const toggleTodo = createAction('TOGGLE_TODO');

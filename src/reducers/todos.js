@@ -1,29 +1,22 @@
-function todos(state = [], action) {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false
-        }
-      ]
-    case 'REMOVE_TODO':
-      return state.filter((t, index) => action.index !== index);
-    case 'REMOVE_ALL_TODOS':
-      return [];
-    case 'TOGGLE_TODO':
-      return state.map((todo, index) => {
-        if (index === action.index) {
+import { createReducer } from "redux-act";
+import { addTodo, removeTodo, toggleTodo, removeAllTodos } from "../actions";
+
+const initialState = [];
+
+export default createReducer(
+  {
+    [addTodo]: (todos, text) => [...todos, { text: text, completed: false }],
+    [removeTodo]: (todos, id) => todos.filter((t, index) => id !== index),
+    [removeAllTodos]: todos => [],
+    [toggleTodo]: (todos, id) =>
+      todos.map((todo, index) => {
+        if (index === id) {
           return Object.assign({}, todo, {
             completed: !todo.completed
-          })
+          });
         }
-        return todo
+        return todo;
       })
-    default:
-      return state
-  }
-}
-
-export default todos;
+  },
+  initialState
+);
