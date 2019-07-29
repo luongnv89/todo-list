@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+/* jshint ignore:start */
 const Link = ({ active, children, onClick }) => {
   if (active) {
-    return <span className="font-weight-bold">{children}</span>
+    return (<span className="font-weight-bold">{children}</span>);
   }
 
   return (
     <a
-      href=""
+      href=''
       onClick={(e) => {
         e.preventDefault();
-        onClick()
+        onClick();
       }}
     >
-    {children}
+      {children}
     </a>
-  )
-}
+  );
+};
 
 Link.propTypes = {
   active: PropTypes.bool.isRequired,
