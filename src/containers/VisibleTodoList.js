@@ -3,7 +3,7 @@ import { toggleTodo, removeTodo, sortTodos } from '../actions';
 import TodoList from '../components/TodoList';
 import sortTodoList from '../selectors';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     todos: sortTodoList(state),
     sortTodos: state.sortTodos,
