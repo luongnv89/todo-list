@@ -2,29 +2,10 @@ import { createSelector } from 'reselect';
 
 const orderList = (state) => state.sortTodos;
 
-const getFilter = (state) => state.visibilityFilter;
-
 const getTodos = (state) => state.todos;
 
-export const getVisibilityFilter = createSelector(
-  [getFilter, getTodos],
-  (filter, todos) => {
-    console.log('Going to filter:', filter);
-    switch (filter) {
-      case 'SHOW_ALL':
-        return todos;
-      case 'SHOW_COMPLETED':
-        return todos.filter((t) => t.completed);
-      case 'SHOW_ACTIVE':
-        return todos.filter((t) => !t.completed);
-      default:
-        return todos;
-    }
-  }
-);
-
 export const sortTodoList =  createSelector(
-  [orderList, getVisibilityFilter],
+  [orderList, getTodos],
   (order, todos) => {
     if (order) {
       console.log('Going to order: ', order);

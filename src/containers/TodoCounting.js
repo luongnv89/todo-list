@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Footer from '../components/Footer';
-import { setVisibilityFilter } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,12 +9,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    changeVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter)),
-  }
-}
-
-const TodoCounting = connect(mapStateToProps, mapDispatchToProps)(Footer);
+const TodoCounting = connect(mapStateToProps)(Footer);
 
 export default TodoCounting;

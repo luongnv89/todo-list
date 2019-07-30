@@ -1,11 +1,12 @@
 import { createReducer } from 'redux-act';
-import { addTodo, removeTodo, toggleTodo, removeAllTodos } from '../actions';
+import { addTodo, removeTodo, toggleTodo, removeAllTodos, fetchTodoReceived } from '../actions';
 import produce from 'immer';
 
 const initialState = [];
 /* jshint ignore:start */
 export default createReducer(
   {
+    [fetchTodoReceived]: produce((draft, todoFromCS) => todoFromCS ),
     [addTodo]: produce((draft, text) => {
       draft.push({ id: draft.length, text, completed: false, createdAt: Date.now() });
     }),

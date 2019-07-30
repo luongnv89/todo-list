@@ -3,11 +3,24 @@ import { toggleTodo, removeTodo, sortTodos } from '../actions';
 import TodoList from '../components/TodoList';
 import { sortTodoList } from '../selectors';
 
-const mapStateToProps = (state) => {
+const getVisibilityFilter = (todos, filter) => {
+  console.log('Going to filter:', todos, filter);
+  switch (filter) {
+    case 'SHOW_ALL':
+      return todos;
+    case 'SHOW_COMPLETED':
+      return todos.filter((t) => t.completed);
+    case 'SHOW_ACTIVE':
+      return todos.filter((t) => !t.completed);
+    default:
+      return todos;
+  }
+};
+
+const mapStateToProps = (state, ownProps) => {
   return {
-    todos: sortTodoList(state),
+    todos: getVisibilityFilter(sortTodoList(state), ownProps.filter),
     sortTodos: state.sortTodos,
-    visibilityFilter: state.visibilityFilter,
   };
 };
 /* jshint ignore:start */
@@ -21,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     changeTodoOrder: () => {
       dispatch(sortTodos());
-    }
+    },
   };
 };
 

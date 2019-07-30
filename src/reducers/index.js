@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import todos from './todos';
 import sortTodos from './sortTodos';
-import visibilityFilter from './visibilityFilter';
+import status from './clientStorage';
 
-export default combineReducers({ todos, sortTodos, visibilityFilter });
+export default combineReducers({ todos, sortTodos, status });
