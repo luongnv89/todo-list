@@ -7,14 +7,14 @@ const Todo = ({ toggleTodo, removeTodo, completed, text, id, createdAt, index })
     <th onClick={() => toggleTodo(id)}>
       <span
         style={{ textDecoration: completed ? 'line-through' : 'none' }}
-        className={`text-${completed ? 'danger' : 'success'}`}
+        className={`text-${completed ? 'danger' : 'success'} todo-text`}
       >
         {text}
       </span>
     </th>
     <th>
       <span
-        className="text-secondary"
+        className="font-weight-lighter"
         style={{ textDecoration: completed ? 'line-through' : 'none' }}
       >
         {(new Date(createdAt)).toLocaleString()}

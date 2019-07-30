@@ -30,24 +30,21 @@ let AddTodo = ({ todos, dispatch }) => {
         </button>
         <button
           type="button"
-          className="btn btn-danger btn-small"
-          style={{ marginLeft: '20px' }}
+          className="btn btn-danger btn-small btnTodo"
           onClick={() => dispatch(removeAllTodos())}
         >
           <i className="fas fa-eraser"/> Clear All
         </button>
         <button
           type="button"
-          className="btn btn-info btn-small"
-          style={{ marginLeft: '20px' }}
+          className="btn btn-info btn-small btnTodo"
           onClick={() => dispatch(fetchTodoRequest())}
         >
           <i className="fas fa-upload"/> Load From Browser
         </button>
         <button
           type="button"
-          className="btn btn-info btn-small"
-          style={{ marginLeft: '20px' }}
+          className="btn btn-info btn-small btnTodo"
           onClick={() => dispatch(saveTodoRequest(todos))}
         >
           <i className="fas fa-download"/> Save To Browser

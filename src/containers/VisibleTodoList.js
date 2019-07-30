@@ -4,7 +4,6 @@ import TodoList from '../components/TodoList';
 import { sortTodoList } from '../selectors';
 
 const getVisibilityFilter = (todos, filter) => {
-  console.log('Going to filter:', todos, filter);
   switch (filter) {
     case 'SHOW_ALL':
       return todos;

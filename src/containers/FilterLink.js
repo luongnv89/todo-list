@@ -1,14 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 /* jshint ignore:start */
-const FilterLink = ({ filter, changeVisibilityFilter, children }) => (
+const FilterLink = ({ filterLink, children }) => (
   <NavLink
     exact
-    to={filter === 'SHOW_ALL' ? '/' : `/${filter}`}
-    activeStyle={{
-      textDecoration: 'none',
-      color: 'black',
-    }}
+    to={filterLink === 'SHOW_ALL' ? '/' : `/${filterLink}`}
   >
     {children}
   </NavLink>

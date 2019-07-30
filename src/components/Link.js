@@ -8,11 +8,12 @@ const Link = ({ active, children, onClick }) => {
 
   return (
     <a
-      href=''
+      href='#'
       onClick={(e) => {
         e.preventDefault();
         onClick();
       }}
+      className="text-decoration-none font-weight-light"
     >
       {children}
     </a>

@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,900&display=swap');
+
 .App {
   margin: 20px;
   padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btnTodo{
+  margin-left: 10px;
+  margin-right: 10px;
 }

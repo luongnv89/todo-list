@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import Footer from '../components/Footer';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     total: state.todos.length,
     totalActive: state.todos.filter((t) => !t.completed).length,
     totalCompleted: state.todos.filter((t) => t.completed).length,
+    filter: ownProps.filter,
   };
 };
 
