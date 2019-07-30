@@ -20,10 +20,10 @@ const TodoList = ({ todos, toggleTodo, removeTodo, changeTodoOrder }) => (
         <tbody>
           {todos.map((todo, index) => (
             <Todo
-              key={index}
+              key={todo.id}
               {...todo}
-              toggleTodo={() => toggleTodo(index)}
-              removeTodo={() => removeTodo(index)}
+              toggleTodo={toggleTodo}
+              removeTodo={removeTodo}
               index={index}
             />
           ))}

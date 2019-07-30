@@ -6,18 +6,19 @@ const initialState = [];
 /* jshint ignore:start */
 export default createReducer(
   {
-    [addTodo]: produce((todos, text) => {
-      todos.push({ text, completed: false, createdAt: Date.now() });
+    [addTodo]: produce((draft, text) => {
+      draft.push({ id: draft.length, text, completed: false, createdAt: Date.now() });
     }),
-    [removeTodo]: (todos, id) => todos.filter((t, index) => id !== index),
+    [removeTodo]: (todos, id) => todos.filter((t) => id !== t.id),
     [removeAllTodos]: (todos) => [],
-    [toggleTodo]: (todos, id) =>
-      todos.map(produce((todo, index) => {
-        if (index === id) {
+    [toggleTodo]: produce((draft, id) => {
+      draft.map((todo) => {
+        if (todo.id === id) {
           todo.completed = !todo.completed;
         }
         return todo;
-      })),
+      });
+    }),
   },
   initialState,
 );

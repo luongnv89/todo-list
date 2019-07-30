@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 /* jshint ignore:start */
-const Todo = ({ toggleTodo, removeTodo, completed, text, createdAt, index }) => (
+const Todo = ({ toggleTodo, removeTodo, completed, text, id, createdAt, index }) => (
   <tr>
     <th scope="row">{index}</th>
-    <th onClick={toggleTodo}>
+    <th onClick={() => toggleTodo(id)}>
       <span
         style={{ textDecoration: completed ? 'line-through' : 'none' }}
         className={`text-${completed ? 'danger' : 'success'}`}
@@ -21,7 +21,7 @@ const Todo = ({ toggleTodo, removeTodo, completed, text, createdAt, index }) => 
       </span>
     </th>
     <th>
-      <button onClick={removeTodo} className="btn btn-outline-danger btn-small">
+      <button onClick={() => removeTodo(id)} className="btn btn-outline-danger btn-small">
         <i className="fas fa-trash" />
       </button>
     </th>
@@ -33,6 +33,7 @@ Todo.propTypes = {
   removeTodo: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   createdAt: PropTypes.number.isRequired,
 };
 
