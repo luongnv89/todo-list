@@ -5,6 +5,8 @@ const FilterLink = ({ filterLink, children }) => (
   <NavLink
     exact
     to={filterLink === 'SHOW_ALL' ? '/' : `/${filterLink}`}
+    className="btn btn-sm btnTodo"
+    style={{borderRadius: '30px'}}
   >
     {children}
   </NavLink>

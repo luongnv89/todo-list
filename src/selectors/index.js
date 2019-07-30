@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 const orderList = (state) => state.sortTodos;
 
-const getTodos = (state) => state.todos;
+export const getTodos = (state) => state.todos;
 
 export const sortTodoList =  createSelector(
   [orderList, getTodos],

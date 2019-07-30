@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, removeAllTodos, fetchTodoRequest, saveTodoRequest } from '../actions';
+import { addTodo, removeAllTodos, saveTodoRequest } from '../actions';
 /* jshint ignore:start */
-let AddTodo = ({ todos, dispatch }) => {
+let AddTodo = ({ dispatch }) => {
   let input;
   return (
     <div>
@@ -22,43 +22,30 @@ let AddTodo = ({ todos, dispatch }) => {
             ref={(node) => {
               input = node;
             }}
-            placeholder="Enter task name"
+            placeholder="What do you want to do"
           />
         </div>
-        <button type="submit" className="btn btn-success btn-small">
+        <button type="submit" className="btn btn-sm btnTodo">
           <i className="fas fa-plus"/> Add Todo
         </button>
         <button
           type="button"
-          className="btn btn-danger btn-small btnTodo"
+          className="btn btn-sm btnTodo"
           onClick={() => dispatch(removeAllTodos())}
         >
           <i className="fas fa-eraser"/> Clear All
         </button>
         <button
           type="button"
-          className="btn btn-info btn-small btnTodo"
-          onClick={() => dispatch(fetchTodoRequest())}
+          className="btn btn-sm btnTodo"
+          onClick={() => dispatch(saveTodoRequest())}
         >
-          <i className="fas fa-upload"/> Load From Browser
-        </button>
-        <button
-          type="button"
-          className="btn btn-info btn-small btnTodo"
-          onClick={() => dispatch(saveTodoRequest(todos))}
-        >
-          <i className="fas fa-download"/> Save To Browser
+          <i className="fas fa-download"/> Save
         </button>
       </form>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos,
-  };
-};
-
-AddTodo = connect(mapStateToProps)(AddTodo);
+AddTodo = connect()(AddTodo);
 export default AddTodo;

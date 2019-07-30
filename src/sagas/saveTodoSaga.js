@@ -1,11 +1,11 @@
-import { takeLatest, put } from 'redux-saga/effects';
+import { takeLatest, put, select } from 'redux-saga/effects';
+import { getTodos } from '../selectors';
 import * as ls from '../clientStorage/localStorage';
-import { fetchTodoReceived, fetchTodoFailed} from '../actions';
 // worker saga: makes the api call when watcher saga sees the action
-function* workerSaga(action) {
+function* workerSaga() {
   try {
-    console.log(fetchTodoFailed, fetchTodoReceived);
-    ls.saveObject('TODO-LIST', action.payload);
+    const todos = yield select(getTodos);
+    ls.saveObject('TODO-LIST', todos);
     // dispatch a success action to the store with the new dog
     yield put({type: 'SAVE_TODO_RECEIVED'});
   } catch (error) {

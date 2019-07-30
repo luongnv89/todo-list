@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 /* jshint ignore:start */
-const Todo = ({ toggleTodo, removeTodo, completed, text, id, createdAt, index }) => (
+const Todo = ({ toggleTodo, removeTodo, completed, text, id, createdAt }) => (
   <tr>
-    <th scope="row">{index}</th>
     <th onClick={() => toggleTodo(id)}>
       <span
         style={{ textDecoration: completed ? 'line-through' : 'none' }}
-        className={`text-${completed ? 'danger' : 'success'} todo-text`}
       >
         {text}
       </span>
-    </th>
-    <th>
+      <br/>
       <span
         className="font-weight-lighter"
-        style={{ textDecoration: completed ? 'line-through' : 'none' }}
+        style={{ textDecoration: completed ? 'line-through' : 'none', fontSize:'0.7em' }}
       >
         {(new Date(createdAt)).toLocaleString()}
       </span>
