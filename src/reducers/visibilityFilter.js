@@ -5,7 +5,7 @@ const initialState = VisibilityFilters.SHOW_ALL;
 /* jshint ignore:start */
 export default createReducer(
   {
-    [setVisibilityFilter]: (filter) => (filter),
+    [setVisibilityFilter]: (state, filter) => (filter),
   },
   initialState,
 );
