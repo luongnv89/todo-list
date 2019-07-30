@@ -6,7 +6,7 @@ const getFilter = (state) => state.visibilityFilter;
 
 const getTodos = (state) => state.todos;
 
-const getVisibilityFilter = createSelector(
+export const getVisibilityFilter = createSelector(
   [getFilter, getTodos],
   (filter, todos) => {
     console.log('Going to filter:', filter);
@@ -23,17 +23,15 @@ const getVisibilityFilter = createSelector(
   }
 );
 
-const sortTodoList =  createSelector(
+export const sortTodoList =  createSelector(
   [orderList, getVisibilityFilter],
   (order, todos) => {
     if (order) {
       console.log('Going to order: ', order);
-      return todos.sort((a,b) => (b.createdAt - a.createdAt));
+      return [...todos].sort((a,b) => (b.createdAt - a.createdAt));
     } else {
       console.log('Going to order (2): ', order);
-      return todos.sort((a,b) => (a.createdAt - b.createdAt));
+      return [...todos].sort((a,b) => (a.createdAt - b.createdAt));
     }
   }
 );
-
-export default sortTodoList;
