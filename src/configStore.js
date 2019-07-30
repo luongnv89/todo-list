@@ -23,10 +23,11 @@ const autoSaveTodo = (store) => (next) => (action) => {
     case 'REMOVE_ALL_TODO':
       setTimeout(() => {
         store.dispatch(saveTodoRequest());
-      }, 1000);
-      break;
+      }, 500);
+      return next(action);
+    default:
+      return next(action);
   }
-  next(action);
 }
 
 const store = createStore(todoApp, composeWithDevTools(applyMiddleware(loggerMiddleware, sagaMiddleware, autoSaveTodo)));
