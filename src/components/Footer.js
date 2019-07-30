@@ -21,19 +21,19 @@ const Footer = ({ total, totalActive, totalCompleted, changeVisibilityFilter }) 
     </FilterLink>
     <div>
       <button
-        className="btn btn-sm btn-outline-dark"
+        className="btn btn-sm btn-outline-dark btn-light"
         onClick={() =>  changeVisibilityFilter(VisibilityFilters.SHOW_ALL)}
       >
         {VisibilityFilters.SHOW_ALL}
       </button>
       <button
-        className="btn btn-sm btn-outline-dark"
+        className="btn btn-sm btn-outline-dark btn-success"
         onClick={() =>  changeVisibilityFilter(VisibilityFilters.SHOW_ACTIVE)}
       >
         {VisibilityFilters.SHOW_ACTIVE}
       </button>
       <button
-        className="btn btn-sm btn-outline-dark"
+        className="btn btn-sm btn-outline-dark btn-danger"
         onClick={() =>  changeVisibilityFilter(VisibilityFilters.SHOW_COMPLETED)}
       >
         {VisibilityFilters.SHOW_COMPLETED}
