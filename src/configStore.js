@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import todoApp from './reducers';
+import allReducers from './reducers';
 import rootSaga from './sagas';
 import { fetchTodoRequest, saveTodoRequest } from './actions';
 // create the saga middleware
@@ -30,7 +30,15 @@ const autoSaveTodo = (store) => (next) => (action) => {
   }
 }
 
-const store = createStore(todoApp, composeWithDevTools(applyMiddleware(loggerMiddleware, sagaMiddleware, autoSaveTodo)));
+const middlewares = [sagaMiddleware, autoSaveTodo];
+let composedEnhancers = null;
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(loggerMiddleware);
+  composedEnhancers = composeWithDevTools(applyMiddleware(...middlewares));
+} else {
+  composedEnhancers = applyMiddleware(...middlewares);
+}
+const store = createStore(allReducers, composedEnhancers);
 // run the saga
 sagaMiddleware.run(rootSaga);
 store.dispatch(fetchTodoRequest());

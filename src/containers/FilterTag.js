@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 /* jshint ignore:start */
-const FilterLink = ({ filterLink, children }) => (
+const FilterTag = ({ filterTag, children }) => (
   <NavLink
     exact
-    to={filterLink === 'SHOW_ALL' ? '/' : `/${filterLink}`}
+    to={filterTag === 'SHOW_ALL' ? '/' : `/${filterTag}`}
     className="btn btn-sm btnTodo"
     style={{borderRadius: '30px'}}
   >
@@ -12,4 +12,4 @@ const FilterLink = ({ filterLink, children }) => (
   </NavLink>
 );
 
-export default FilterLink;
+export default FilterTag;

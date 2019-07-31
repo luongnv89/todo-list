@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,900&display=swap');
 
-.App {
+.TodoApp {
   margin: 20px;
   padding: 20px;
   font-family: 'Montserrat', sans-serif;
@@ -14,4 +14,9 @@
 
 .btnTodo:hover{
   border-bottom-color: blueviolet;
+}
+
+.todoCompleted{
+  text-decoration: line-through;
+  color: gray;
 }

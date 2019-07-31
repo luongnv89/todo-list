@@ -5,15 +5,10 @@ import Todo from './Todo';
 const TodoList = ({ todos, toggleTodo, removeTodo }) => (
   <div className="card" style={{ marginTop: '30px' }}>
     <div className="card-body">
-      <table className="table">
+      <table className="table table-borderless">
         <tbody>
-          {todos.map((todo, index) => (
-            <Todo
-              key={todo.id}
-              {...todo}
-              toggleTodo={toggleTodo}
-              removeTodo={removeTodo}
-            />
+          {todos.map((todo) => (
+            <Todo key={todo.id} {...todo} toggleTodo={toggleTodo} removeTodo={removeTodo} />
           ))}
         </tbody>
       </table>

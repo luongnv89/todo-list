@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo, removeAllTodos, saveTodoRequest } from '../actions';
+import { addTodo, removeAllTodos } from '../actions';
 /* jshint ignore:start */
 let AddTodo = ({ dispatch }) => {
   let input;
@@ -34,13 +34,6 @@ let AddTodo = ({ dispatch }) => {
           onClick={() => dispatch(removeAllTodos())}
         >
           <i className="fas fa-eraser"/> Clear All
-        </button>
-        <button
-          type="button"
-          className="btn btn-sm btnTodo"
-          onClick={() => dispatch(saveTodoRequest())}
-        >
-          <i className="fas fa-download"/> Save
         </button>
       </form>
     </div>

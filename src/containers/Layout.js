@@ -3,12 +3,16 @@ import '../App.css';
 import AddTodo from './AddTodo';
 import VisibleTodoList from './VisibleTodoList';
 import TodoCounting from './TodoCounting';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 /* jshint ignore:start */
-const App = ({ match: { params } }) => (
-  <div className="App">
+const Layout = ({ match: { params } }) => (
+  <div className="TodoApp">
+    <Header />
     <AddTodo />
     <VisibleTodoList filter={params.filter || 'SHOW_ALL'} />
     <TodoCounting />
+    <Footer />
   </div>
 );
-export default App;
+export default Layout;
