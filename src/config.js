@@ -1,5 +1,5 @@
 export default {
-  TODO_VERSION: '0.0.1.1',
+  TODO_VERSION: '0.0.2.0',
   HEADER_MESSAGES: [
     'Only add what you will do today',
     'Do not add more than 6 tasks for today',
