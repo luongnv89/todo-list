@@ -4,7 +4,8 @@ import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import allReducers from './reducers';
 import rootSaga from './sagas';
-import { fetchTodoRequest, saveTodoRequest } from './actions';
+import { fetchTodoRequest, saveTodoRequest, changeHeaderMessage } from './actions';
+import { getRandomHeaderMessage } from './utils';
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -23,6 +24,7 @@ const autoSaveTodo = (store) => (next) => (action) => {
     case 'REMOVE_ALL_TODOS':
       setTimeout(() => {
         store.dispatch(saveTodoRequest());
+        store.dispatch(changeHeaderMessage(getRandomHeaderMessage()));
       }, 500);
       return next(action);
     default:

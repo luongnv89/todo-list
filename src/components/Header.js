@@ -1,7 +1,6 @@
 import React from 'react';
-import { getRandomHeaderMessage } from '../utils';
 // Website footer
-const Header = () => (
+const Header = ({message}) => (
   <div
     style={{
       marginBottom: '20px',
@@ -14,7 +13,7 @@ const Header = () => (
         color: 'orange',
       }}
     >
-      <i className="fas fa-info-circle"/> {getRandomHeaderMessage()}
+      <i className="fas fa-info-circle"/> {message}
     </span>
   </div>
 );

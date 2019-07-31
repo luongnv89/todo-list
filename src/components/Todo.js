@@ -10,6 +10,7 @@ const Todo = ({ toggleTodo, removeTodo, completed, text, id, createdAt }) => (
       <br/>
       <span
         style={{ fontSize:'0.7em' }}
+        className="font-weight-lighter"
       >
         {(new Date(createdAt)).toLocaleString()}
       </span>

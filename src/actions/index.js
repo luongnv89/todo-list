@@ -19,3 +19,5 @@ export const fetchTodoFailed = createAction('FETCH_TODO_FAILED');
 export const saveTodoRequest = createAction('SAVE_TODO_REQUEST');
 export const saveTodoReceived = createAction('SAVE_TODO_RECEIVED');
 export const saveTodoFailed = createAction('SAVE_TODO_FAILED');
+
+export const changeHeaderMessage = createAction('CHANGE_HEADER_MESSAGE');

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Footer from '../components/TodoFilter';
+import TodoFilter from '../components/TodoFilter';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -10,6 +10,6 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const TodoCounting = connect(mapStateToProps)(Footer);
+const TodoCounting = connect(mapStateToProps)(TodoFilter);
 
 export default TodoCounting;
