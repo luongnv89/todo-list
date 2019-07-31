@@ -20,7 +20,7 @@ const autoSaveTodo = (store) => (next) => (action) => {
     case 'ADD_TODO':
     case 'REMOVE_TODO':
     case 'TOGGLE_TODO':
-    case 'REMOVE_ALL_TODO':
+    case 'REMOVE_ALL_TODOS':
       setTimeout(() => {
         store.dispatch(saveTodoRequest());
       }, 500);
