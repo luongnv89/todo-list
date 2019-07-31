@@ -6,7 +6,7 @@ function* workerSaga() {
   try {
     const todos = ls.getObject('TODO-LIST');
     // dispatch a success action to the store with the new dog
-    yield put(fetchTodoReceived(todos));
+    yield put(fetchTodoReceived(todos === null ? [] : todos));
   } catch (error) {
     // dispatch a failure action to the store with the error
     yield put(fetchTodoFailed(error));
