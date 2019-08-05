@@ -1,6 +1,7 @@
 import { createReducer } from 'redux-act';
 import { addTodo, removeTodo, toggleTodo, removeAllTodos, fetchTodoReceived } from '../actions';
 import produce from 'immer';
+import { randomID } from '../utils';
 
 const initialState = [];
 /* jshint ignore:start */
@@ -8,7 +9,8 @@ export default createReducer(
   {
     [fetchTodoReceived]: produce((draft, todoFromCS) => todoFromCS ),
     [addTodo]: produce((draft, text) => {
-      draft.push({ id: draft.length, text, completed: false, createdAt: Date.now() });
+      // Maybe ID generator
+      draft.push({ id: randomID(), text, completed: false, createdAt: Date.now() });
     }),
     [removeTodo]: (todos, id) => todos.filter((t) => id !== t.id),
     [removeAllTodos]: (todos) => [],
